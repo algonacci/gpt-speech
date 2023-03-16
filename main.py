@@ -1,11 +1,9 @@
-import os
 import time
 import warnings
 
-import openai as ai
 import speech_recognition as sr
-import module as md
 
+import module as md
 
 warnings.filterwarnings("ignore")
 
@@ -25,13 +23,13 @@ def listen_speak():
         try:
             message = r.recognize_google(audio, language='id', show_all=False)
             print("You said: " + message)
-            response = md.generate(message)
-            print("ZiyonGPT: ", + response)
-            # md.jarvis(say)
+            response = md.generate(prompt=message)
+            say = response
+            print("ZiyonGPT: " + say)
+            md.jarvis(text=say)
         except:
             print("Please Repeat")
             time.sleep(1)
-            # pass
 
 
 if __name__ == '__main__':
